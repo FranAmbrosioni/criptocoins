@@ -22,7 +22,7 @@ const apiCoins = axios.create({
 
 export default {
 getCoins(coin) {
-    return apiCoins.get(`criptofacil/${coin}/ars`);
+    return apiCoins.get(`${coin}/ars`);
 
 },
 postOperation(user, type, cripto, amount, money, dateTime) {
