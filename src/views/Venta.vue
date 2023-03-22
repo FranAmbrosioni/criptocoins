@@ -132,9 +132,9 @@ background-color: #222;
 
 .btnCripto:hover,
 .btnCripto:focus {
-    opacity: .75;
-    background-color: rgb(77, 205, 209);
-    color: #222;
+    opacity: .95;
+    background-color: rgb(3, 63, 45);
+    color: #fffefe;
 }
 
 </style>

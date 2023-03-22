@@ -4,7 +4,7 @@
         <hr>
 
     </div>
-    <div v-if="$store.state.movements.length != 0">
+    <div class="centrardiv" v-if="$store.state.movements.length != 0" >
         <div v-if="view ===1">
             <EstadoActual></EstadoActual>
             <Historial @showOperation="seeOperation"></Historial>
@@ -14,7 +14,7 @@
             <h3>Información del Movimiento</h3>
             <div>
                 <div>Criptomoneda: {{information.crypto_code.toUpperCase()}}</div>
-                <div>Tipo de Operación: {{information.action.toUpperCase()}}</div>
+                <div>Operación: {{information.action.toUpperCase()}}</div>
                 <div>Cantdad: {{information.crypto_amount}}</div>
                 <div>Dinero Invertido: $ {{information.money}}</div>
                 <div>Fecha de operación: {{date(information)}}</div>
@@ -120,3 +120,5 @@ methods: {
 };
 
 </script>
+
+<style scoped></style>
