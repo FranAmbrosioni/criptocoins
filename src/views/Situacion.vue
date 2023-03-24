@@ -67,7 +67,7 @@ data() {
     view: 1,
     selectedPrice: 0,
     information: {
-        id: "",
+        _id: "",
         action: "",
         crypto_amount: null,
         crypto_code: "",
@@ -83,7 +83,7 @@ methods: {
     seeOperation(id, page) {
     CoinServices.getMovementsById(id)
         .then((response) => {
-        this.information.id = response.data.id;
+        this.information._id = response.data._id;
         this.information.action = response.data.action;
         this.information.crypto_amount = response.data.crypto_amount;
         this.information.crypto_code = response.data.crypto_code;
@@ -94,7 +94,7 @@ methods: {
         .then(()=>this.view = page);
     },
     deleteOperation() {
-    CoinServices.deleteOperation(this.information.id)
+    CoinServices.deleteOperation(this.information._id)
         .then(()=> this.setMovements())
         .then(()=> this.view = 1);
     },

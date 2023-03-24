@@ -163,7 +163,7 @@ export default createStore({
   },
   actions: {
     setMovements(resource){
-      debugger;
+      
       CoinServices.getUserInformation(resource.state.user)
       .then((response) => {
         resource.commit("cleanMovements");

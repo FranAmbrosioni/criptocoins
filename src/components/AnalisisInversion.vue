@@ -4,7 +4,7 @@
         <div>
             <table>
                 <thead>
-                    <tr>Coin</tr>
+                    <th>Coin</th>
                     <th>Resultado</th>
                 </thead>
                 <tbody>
@@ -57,6 +57,46 @@
     
     </script>
     
-    <style scoped>
+    <style >
+    .tablecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px auto;
+
+}
+
+table{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+th,td{
+    border: solid 1px black;
+    padding: 0;
+}
+
+thead{
+    background-color: #246355;
+    border-bottom: solid 5px #0f362d ;
+    color: white;
+
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+
+}
+
+tr:hover{
+    background-color: #369681;
+    color: white;
+}
+
+
     </style>
     

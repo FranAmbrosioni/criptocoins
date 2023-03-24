@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <h3>Historial</h3>
+    <h3>Historial</h3>
+    <div class="tablecontainer">
+        
         <table>
             <thead>
                 <tr>
@@ -12,10 +13,22 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-        </table>
+        
         <tbody>
-
+            <tr v-for="movement in $store.state.movements" :key="movement.user_id">
+                <td>{{ movement.crypto_code.toUpperCase() }}</td>
+                <td>{{ movement.action.toUpperCase() }}</td>
+                <td>{{ movement.crypto_amount }}</td>
+                <td>${{ movement.money }}</td>
+                <td>{{ date(movement) }}</td>
+                <td>
+                    <button @click="operation(movement._id, 2)">Ver</button>
+                    <button @click="operation(movement._id, 3)">Editar</button>
+                    <button @click="operation(movement._id, 4)">Eliminar</button>
+                </td>
+            </tr>
         </tbody>
+    </table>
     </div>
 </template>
 
@@ -55,3 +68,46 @@ methods: {
 
 };
 </script>
+
+
+<style>
+.tablecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px auto;
+
+}
+
+table{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+th,td{
+    border: solid 1px black;
+    padding: 0;
+}
+
+thead{
+    background-color: #246355;
+    border-bottom: solid 5px #0f362d ;
+    color: white;
+
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+
+}
+
+tr:hover{
+    background-color: #369681;
+    color: white;
+}
+
+</style>

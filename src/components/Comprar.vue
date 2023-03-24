@@ -43,6 +43,7 @@
           this.montoPesos = (this.cantidadCriptos * this.agencies[this.selectedCoin].totalAsk);
         },
         comprar() {
+            debugger;
         this.$emit('registrar', this.cantidadCriptos, this.montoPesos);
         },
         volver() {
