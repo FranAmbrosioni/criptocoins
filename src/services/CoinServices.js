@@ -31,7 +31,7 @@ postOperation(user, type, cripto, amount, money, dateTime) {
         });
     },
 getUserInformation(user) {
-   // return apiClient.get(`/transactions?q={"user_id": "${user}"}`);
+    debugger;
     return apiClient.get(`/transactions?q={"user_id": "${user}"}`);
 },
 getCurrentPrice(coin) {

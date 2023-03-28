@@ -10,7 +10,7 @@
         </thead>
         <tbody>
             <tr v-for="agency in Object.keys(agencies)" :key="agency">
-                <td>{{ agency }}</td>
+                <td>{{agency}}</td>
                 <td>$ {{this.agencies[agency].totalBid}}</td>
                 <td><button @click="change(agency)">Vender</button></td>
             </tr>
@@ -39,6 +39,7 @@ data() {
 },
 methods: {
     change(agency) {
+        debugger;
     this.selectedCoin = agency;
     this.$emit('change-view');
     this.$emit('sendCoin', this.selectedCoin);

@@ -1,12 +1,10 @@
 <template>
     <div>
     <h4>{{selectedCoin.toUpperCase()}}</h4>
-    <label>Monto en pesos</label>
-        <input type="number" v-model.number="montoPesos" @input="calcularCripto">
+    <label>Monto en pesos</label><input type="number" v-model.number="montoPesos" @input="calcularCripto">
         <br>
         <br>
-        <label>Cantidad de criptomonedas</label>
-    <input type="number" v-model.number="cantidadCripto" @input="calcularPeso"><br>
+        <label>Cantidad de criptomonedas</label><input type="number" v-model.number="cantidadCripto" @input="calcularPeso"><br>
     <br>
     <button @click="comprar">Vender</button>
     <button @click="volver">Volver</button><br>

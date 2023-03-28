@@ -17,7 +17,7 @@
         </div>
         </div>
         <div v-else-if="view === 2">
-            <Vender @selectedCoin="selectedCoin" :view="view" @change-view="changeView" :coin="coin" :agencies="agencies" @registrar="registrar"></Vender>
+            <Vender :selectedCoin="selectedCoin" :view="view" @change-view="changeView" :coin="coin" :agencies="agencies" @registrar="registrar"></Vender>
         </div>
     </div>
 </template>
@@ -43,8 +43,8 @@ data() {
     agencies: [],
     coin: '',
     view: 1,
-    SelectedCoin: "''",
-    dateTime: "''",
+    selectedCoin: "",
+    dateTime: "",
     type: 'sale',
     btc: 'btc',
     eth: 'eth',
@@ -75,10 +75,10 @@ methods: {
       this.seeTable = true;
     },
     selectAgency(selected) {
-      this.SelectedCoin = selected;
+      this.selectedCoin = selected;
     },
     registrar(cantidadCripto, MontoPesos) {
-      const date = new Date();
+      let date = new Date();
       this.dateTime = new Date(
         parseInt(date.getFullYear()),
         parseInt(date.getMonth()),
@@ -87,7 +87,7 @@ methods: {
         parseInt(date.getMinutes()),
       );
       CoinServices.postOperation(this.usuario, this.type, this.coin, cantidadCripto, MontoPesos, this.dateTime)
-        .then(() => this.$router.push({ name: "situacion" }));
+        .then(() => this.$router.push({ name: "Situacion" }));
       this.setMovements();
     },
   },
