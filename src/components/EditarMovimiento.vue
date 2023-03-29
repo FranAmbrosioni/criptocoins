@@ -21,8 +21,8 @@
     <br>
     <br>
     <div>
-        <input type="submit"  id="boton" value="Aceptar" :disabled="newValues.crypto_amount <=0 || newValues.money <=0">
-        <input type="reset" id="boton" value="Cancelar">
+        <input type="submit"  id="boton" value="Aceptar" :disabled="newValues.crypto_amount <=0 || newValues.money <=0"/>
+        <input type="reset" id="boton" value="Cancelar"/>
     </div>
 </form>
 

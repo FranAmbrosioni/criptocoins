@@ -12,12 +12,12 @@
         </div>
         <div v-if="view === 2">
             <h3>Información del Movimiento</h3>
-            <div>
-                <div>Criptomoneda: {{information.crypto_code.toUpperCase()}}</div>
-                <div>Operación: {{information.action.toUpperCase()}}</div>
-                <div>Cantdad: {{information.crypto_amount}}</div>
-                <div>Dinero Invertido: $ {{information.money}}</div>
-                <div>Fecha de operación: {{date(information)}}</div>
+            <div class="info">           
+                <p>Criptomoneda: {{ information.crypto_code.toUpperCase() }}</p>
+                <p>Operación: {{ information.action.toUpperCase() }}</p>
+                <p>Cantidad: {{ information.crypto_amount }}</p>
+                <p>Dinero Invertido: $ {{ information.money }}</p>
+                <p>Fecha de operación: {{ date(information) }}</p>
             </div>
             <br>
             <button @click="view =1">Volver al menú anterior</button>

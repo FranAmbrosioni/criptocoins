@@ -128,6 +128,7 @@ export default createStore({
           }
         }
         if (coin.crypto_code === "ada"){
+        
           if (coin.action === "purchase"){
             state.totalADA += coin.crypto_amount;
             state.resultadoADA -= parseFloat(coin.money).toFixed(2);
@@ -142,7 +143,7 @@ export default createStore({
       state.resultadoBTC += state.priceBTC * state.totalBTC;
       state.resultadoADA += state.priceADA * state.totalADA;
       state.resultadoUSDT += state.priceUSDT * state.totalUSDT;   
-       
+
       if (state.resultadoETH !== 0){
         state.resultadoETH = (state.resultadoETH).toFixed(2);
       }
@@ -150,6 +151,7 @@ export default createStore({
         state.resultadoBTC = (state.resultadoBTC).toFixed(2);
       }
       if (state.resultadoADA !== 0){
+        debugger;
         state.resultadoADA = (state.resultadoADA).toFixed(2);
       }
       if (state.resultadoUSDT !== 0){
