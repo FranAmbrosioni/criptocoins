@@ -16,9 +16,9 @@
                         <td>{{ETH}}</td>
                         <td>$ {{$store.state.resultadoETH}}</td>
                     </tr>
-                    <tr v-show="$store.state.resutadoADA != 0">
-                        <td>{{ETH}}</td>
-                        <td>$ {{$store.state.resultadoADA}}</td>
+                    <tr v-show="$store.state.resultadoXLM != 0">
+                        <td>{{XLM}}</td>
+                        <td>$ {{$store.state.resultadoXLM}}</td>
                     </tr>
                     <tr v-show="$store.state.resutadoUSDT != 0">
                         <td>{{USDT}}</td>
@@ -41,14 +41,14 @@
         BTC: 'BTC',
         USDT: 'USDT',
         ETH: 'ETH',
-        ADA: 'ADA',
+        XLM: 'XLM',
         };
     },
     computed:
         mapState({ usuario: (state) => state.user }),
-    ...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getADAPrice']),
+    ...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getXLMPrice']),
     methods: {
-        ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceADA']),
+        ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceXLM']),
         changeSeeTable(){
         this.seeTable = true;
         },

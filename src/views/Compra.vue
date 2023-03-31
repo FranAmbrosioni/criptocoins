@@ -11,7 +11,7 @@
             
             <button class="btnCripto" @click="Cripto(btc)"><span class="text">Bitcoin</span></button>
             <button class="btnCripto" @click="Cripto(usdt)"><span class="text">Tether</span></button>
-            <button class="btnCripto" @click="Cripto(ada)"><span class="text">Cardano</span></button>
+            <button class="btnCripto" @click="Cripto(xlm)"><span class="text">Lumens</span></button>
             <button class="btnCripto" @click="Cripto(eth)"><span class="text">Ethereum</span></button>
         
             
@@ -51,7 +51,7 @@ data() {
     type: 'purchase',
     btc: 'btc',
     eth: 'eth',
-    ada: 'ada',
+    xlm: 'xlm',
     usdt: 'usdt',
     seeTable: false,
     };

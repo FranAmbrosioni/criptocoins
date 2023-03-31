@@ -3,9 +3,9 @@
 
     <h4 class="centrar">{{selectedCoin.toUpperCase()}}</h4>
 
-    <label>Cantidad de criptomonedas</label><input type="number" v-model.number="cantidadCripto" @input="calcularPeso"><br>
+    <label class="label">Cantidad de criptomonedas</label><input class="input" type="number" v-model.number="cantidadCripto" @input="calcularPeso"><br>
     <br>
-    <label>Monto en pesos</label><input type="number" v-model.number="montoPesos" @input="calcularCripto"><br>
+    <label class="label">Monto en pesos</label><input class="input" type="number" v-model.number="montoPesos" @input="calcularCripto"><br>
     <br>
     <div class="centrar">
     <button @click="comprar" class="btnCripto">Vender</button>
@@ -52,7 +52,7 @@ export default {
     ...mapState({
         totalBTC: (state) => state.totalBTC,
         totalETH: (state) => state.totalETH,
-        totalADA: (state) => state.totalADA,
+        totalXLM: (state) => state.totalXLM,
         totalUSDT: (state) => state.totalUSDT,
     }),
     },
@@ -64,7 +64,7 @@ export default {
         this.montoPesos = (this.cantidadCripto * this.agencies[this.selectedCoin].totalBid);
     },
     comprar() {
-        if (this.coin === 'btc') {
+        if (this.coin === "btc") {
         if (this.totalBTC >= this.cantidadCripto) {
             this.$emit('registrar', this.cantidadCripto, this.montoPesos);
         } else {
@@ -78,8 +78,8 @@ export default {
             this.view = 1;
         }
         }
-        if (this.coin === 'ada') {
-        if (this.totalADA >= this.cantidadCripto) {
+        if (this.coin === 'xlm') {
+        if (this.totalXLM >= this.cantidadCripto) {
             this.$emit('registrar', this.cantidadCripto, this.montoPesos);
         } else {
             this.view = 1;

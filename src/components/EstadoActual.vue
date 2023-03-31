@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>Estado Actual</h3>
-        <div  class="" v-if="$store.state.totalBTC > 0|| $store.state.totalETH > 0 || $store.state.totalUSDT > 0|| $store.state.totalADA > 0"  >
+        <div  class="" v-if="$store.state.totalBTC > 0|| $store.state.totalETH > 0 || $store.state.totalUSDT > 0|| $store.state.totalXLM > 0"  >
         <table>
             <thead>
                 <tr>
@@ -27,10 +27,10 @@
                 <td>{{$store.state.totalUSDT}}</td>
                 <td>$ {{$store.state.priceUSDT }}</td>
             </tr>
-            <tr v-show="$store.state.totalADA > 0">
-                <td>{{ADA}}</td>
-                <td>{{$store.state.totalADA}}</td>
-                <td>$ {{$store.state.priceADA }}</td>
+            <tr v-show="$store.state.totalXLM > 0">
+                <td>{{XLM}}</td>
+                <td>{{$store.state.totalXLM}}</td>
+                <td>$ {{$store.state.priceXLM }}</td>
             </tr>
         </tbody>
     </table>
@@ -52,16 +52,16 @@ data() {
     BTC: 'BTC',
     ETH: 'ETH',
     USDT: 'USDT',
-    ADA: 'ADA',
+    XLM: 'XLM',
     };
 },
 computed:
         mapState(
-        { usuario: (state) => state.user },
+        { usuario: (state) => state.user, },
         ),
-...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getADAPrice','getCoins']),
+...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getXLMPrice','getCoins']),
 methods: {
-    ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceADA']),
+    ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceXLM']),
 }
 };
 </script>

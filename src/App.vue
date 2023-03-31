@@ -23,12 +23,10 @@
     <LogIn @user-log-in="userName" ></LogIn>
     </div>
   </div>
-  <div class="loadingPage" v-if="showMainView === 2">
-      <h4 id="loadingText">
-        Por favor, aguarde un instante. <br>
-        Estamos Procesando su consulta.
-      </h4>
-      <img id="imgCargando" src="https://c.tenor.com/XK37GfbV0g8AAAAC/loading-cargando.gif"/>      
+  <div class="center" v-if="showMainView === 2">
+    <div class="ring">
+      <span class="span">cargando...</span>
+    </div>
     </div>
   
 </template>
@@ -46,7 +44,7 @@ export default{
       usuario: '',
       btc: 'btc',
       eth: 'eth',
-      ada: 'ada',
+      xlm: 'xlm',
       usdt: 'usdt',
     };
   },
@@ -57,7 +55,7 @@ export default{
   },
   methods: {
     ...mapMutations(['cleanMovements', 'setUser', 'changeShowMainView',
-          'getCurrentPriceBTC', 'getCurrentPriceUSDT', 'getCurrentPriceADA', 'getCurrentPriceETH']),
+          'getCurrentPriceBTC', 'getCurrentPriceUSDT', 'getCurrentPriceXLM', 'getCurrentPriceETH']),
     ...mapActions(['setMovements']),
 
     changeUser() {
@@ -68,7 +66,7 @@ export default{
       this.setUser(user);
       this.setMovements();
       this.getCurrentPriceBTC(this.btc);
-      this.getCurrentPriceADA(this.ada);
+      this.getCurrentPriceXLM(this.xlm);
       this.getCurrentPriceUSDT(this.usdt);
       this.getCurrentPriceETH(this.eth);
       this.changeShowMainView(2);
@@ -79,6 +77,67 @@ export default{
 
 <style>
 
+.center {
+  font-family: montserrat;
+  background: black;
+  color: white ;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+}
+
+.ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 2s linear infinite ;
+}
+
+@keyframes ring {
+  0%{
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px  #e65c00;
+  }
+  50%{
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px  #18b201;
+  }
+  100%{
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px  #0456c8;
+  }
+}
+
+.ring:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+
+.span {
+  color: #e0e0e0;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 200px;
+  animation:  text 3s ease-in-out infinite;
+}
+
+@keyframes text {
+  50% {
+    color: rgb(185, 180, 180);
+  }
+
+}
 .title{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 48px; color: #09440b;
 }
@@ -170,5 +229,11 @@ export default{
   color: var(--c);
   box-shadow: inset 0 0 9e9q #0005;
   transition: 0s;
+}
+
+.centrardiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

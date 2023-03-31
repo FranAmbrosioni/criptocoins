@@ -5,7 +5,7 @@
         <option value="btc">Bitcoin</option>
         <option value="eth">Ethereum</option>
         <option value="usdt">Tether</option>
-        <option value="ada">Cardano</option>
+        <option value="xlm">Lumens</option>
     </select>
 
     <select v-model="newValues.action">

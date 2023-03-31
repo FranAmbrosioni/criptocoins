@@ -10,7 +10,7 @@
         <div v-if="view=== 1">
         <button class="btnCripto" @click="Cripto(btc)">Bitcoin</button>
         <button class="btnCripto" @click="Cripto(usdt)">Tether</button>
-        <button class="btnCripto" @click="Cripto(ada)">Cardano</button>
+        <button class="btnCripto" @click="Cripto(xlm)">Lumens</button>
         <button class="btnCripto" @click="Cripto(eth)">Ethereum</button>
         <div v-show="seeTable">
             <TablaVenta :agencies="agencies" :view="view" @change-view="changeView" @sendCoin="selectAgency"></TablaVenta>
@@ -49,7 +49,7 @@ data() {
     btc: 'btc',
     eth: 'eth',
     usdt: 'usdt',
-    ada: 'ada',
+    xlm: 'xlm',
     seeTable: false,
     };
 },

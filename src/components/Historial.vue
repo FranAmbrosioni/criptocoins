@@ -43,10 +43,10 @@ data() {
 },
 computed:
     mapState({ usuario: (state) => state.user }),
-...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getADAPrice']),
+...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getXLMPrice']),
 
 methods: {
-    ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceADA']),
+    ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceXLM']),
 
     operation(id, view) {
     this.$emit('showOperation', id, view);

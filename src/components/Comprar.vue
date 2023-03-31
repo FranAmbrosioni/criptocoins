@@ -2,10 +2,10 @@
     <div>
         <h4>{{selectedCoin.toUpperCase()}}</h4>
         
-        <label>Cantidad de CriptoMonedas</label>
-        <input  type="number" v-model.number="cantidadCriptos" @input="calcularPeso">
+        <label class="label">Cantidad de CriptoMonedas</label>
+        <input  class="input" type="number" v-model.number="cantidadCriptos" @input="calcularPeso">
         <label>Monto en pesos</label>
-        <input  type="number" v-model.number="montoPesos" @input="calcularCripto"><br>
+        <input class="input" type="number" v-model.number="montoPesos" @input="calcularCripto"><br>
         
         <br>
         <button @click="comprar" class="btnCripto">Comprar</button>
@@ -100,9 +100,9 @@ width: 100px;
     color: #fffefe;
 }
 
-input,
-label,
-textarea {
+.input,
+.label,
+.textarea {
   font-family: 'Ubuntu', sans-serif;
   display: block;
   margin: 10px;
@@ -112,4 +112,4 @@ textarea {
 }
 
 
-    </style>
+</style>
