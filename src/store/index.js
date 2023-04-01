@@ -97,6 +97,7 @@ export default createStore({
       state.resultadoXLM = 0;
       state.resultadoUSDT = 0;
       state.movements = movements;
+      debugger;
       for (let coin of state.movements){
         if (coin.crypto_code === "btc"){
           if (coin.action === "purchase"){
@@ -140,11 +141,11 @@ export default createStore({
           }
         }
       }
-      state.resultadoETH += parseFloat(state.priceETH * state.totalETH);
-      state.resultadoBTC += parseFloat(state.priceBTC * state.totalBTC);
-      state.resultadoXLM +=parseFloat(state.priceXLM * state.totalXLM);
-      state.resultadoUSDT +=parseFloat(state.priceUSDT * state.totalUSDT);   
-
+      debugger;
+      state.resultadoETH += state.priceETH * state.totalETH;
+      state.resultadoBTC += state.priceBTC * state.totalBTC;
+      state.resultadoXLM +=state.priceXLM * state.totalXLM;
+      state.resultadoUSDT +=state.priceUSDT * state.totalUSDT;   
 
       if (state.resultadoETH !== 0){
         state.resultadoETH = parseFloat(state.resultadoETH).toFixed(2)
