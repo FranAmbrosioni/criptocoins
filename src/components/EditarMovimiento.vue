@@ -5,7 +5,7 @@
         <option value="btc">Bitcoin</option>
         <option value="eth">Ethereum</option>
         <option value="usdt">Tether</option>
-        <option value="ada">Cardano</option>
+        <option value="xlm">Lumens</option>
     </select>
 
     <select v-model="newValues.action">
@@ -21,8 +21,8 @@
     <br>
     <br>
     <div>
-        <input type="submit"  id="boton" value="Aceptar" :disabled="newValues.crypto_amount <=0 || newValues.money <=0">
-        <input type="reset" id="boton" value="Cancelar">
+        <input type="submit"  id="boton" value="Aceptar" :disabled="newValues.crypto_amount <=0 || newValues.money <=0"/>
+        <input type="reset" id="boton" value="Cancelar"/>
     </div>
 </form>
 

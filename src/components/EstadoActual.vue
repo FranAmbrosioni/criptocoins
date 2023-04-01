@@ -1,16 +1,16 @@
 <template>
     <div>
         <h3>Estado Actual</h3>
-        <div v-if="$store.state.totalBTC > 0|| $store.state.totalETH > 0 || $store.state.totalUSDT > 0|| $store.state.totalADA > 0"  >
+        <div  class="" v-if="$store.state.totalBTC > 0|| $store.state.totalETH > 0 || $store.state.totalUSDT > 0|| $store.state.totalXLM > 0"  >
         <table>
             <thead>
                 <tr>
-                    <th>Coin</th>
-                    <th>Cantidad</th>
-                    <th>Precio Actual</th>
+                    <th scope="col">Coin</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Actual</th>
                 </tr>
             </thead>
-        </table>
+        
         <tbody>
             <tr v-show="$store.state.totalBTC > 0">
                 <td>{{BTC}}</td>
@@ -27,12 +27,13 @@
                 <td>{{$store.state.totalUSDT}}</td>
                 <td>$ {{$store.state.priceUSDT }}</td>
             </tr>
-            <tr v-show="$store.state.totalADA > 0">
-                <td>{{ADA}}</td>
-                <td>{{$store.state.totalADA}}</td>
-                <td>$ {{$store.state.priceADA }}</td>
+            <tr v-show="$store.state.totalXLM > 0">
+                <td>{{XLM}}</td>
+                <td>{{$store.state.totalXLM}}</td>
+                <td>$ {{$store.state.priceXLM }}</td>
             </tr>
         </tbody>
+    </table>
         </div>
         <div v-else>
             <p>No posee Criptomonedas</p>
@@ -51,19 +52,57 @@ data() {
     BTC: 'BTC',
     ETH: 'ETH',
     USDT: 'USDT',
-    ADA: 'ADA',
+    XLM: 'XLM',
     };
 },
 computed:
         mapState(
-        { usuario: (state) => state.user },
+        { usuario: (state) => state.user, },
         ),
-...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getADAPrice','getCoins']),
+...mapGetters(['getBTCPrice', 'getETHPrice', 'getUSDTPrice', 'getXLMPrice','getCoins']),
 methods: {
-    ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceADA']),
+    ...mapMutations(['getCurrentPriceBTC', 'getCurrentPriceETH', 'getCurrentPriceUSDT', 'getCurrentPriceXLM']),
 }
 };
 </script>
 <style scoped>
 
+.tablecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 100px auto;
+
+}
+
+table{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+th,td{
+    border: solid 1px black;
+    padding: 0;
+}
+
+thead{
+    background-color: #246355;
+    border-bottom: solid 5px #0f362d ;
+    color: white;
+
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+
+}
+
+tr:hover{
+    background-color: #369681;
+    color: white;
+}
 </style>

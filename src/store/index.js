@@ -12,15 +12,15 @@ export default createStore({
     priceBTC: 0,
     priceUSDT: 0,
     priceETH: 0,
-    priceADA: 0,
+    priceXLM: 0,
     totalBTC: 0,
     totalUSDT: 0,
-    totalADA: 0,
+    totalXLM: 0,
     totalETH: 0,
     resultadoBTC: 0,
     resultadoUSDT: 0,
     resultadoETH: 0,
-    resultadoADA: 0,
+    resultadoXLM: 0,
   },
   getters: {
     getUser(state){
@@ -35,17 +35,18 @@ export default createStore({
     getETHPrice(state){
       return state.priceETH
     },
-    getADAPrice(state){
-      return state.priceADA
+    getXLMPrice(state){
+      return state.priceXLM
     },
     getMovements(state){
       return state.movements
     },
     getCoins(state){
+      debugger
       return {
         totalBTC: state.totalBTC,
         totalETH: state.totalETH,
-        totalADA: state.totalADA,
+        totalXLM: state.totalXLM,
         totalUSDT: state.totalUSDT,
       }
     }
@@ -78,24 +79,25 @@ export default createStore({
         state.priceUSDT = parseFloat(state.values.totalBid).toFixed(2);
       }) 
     },
-    getCurrentPriceADA(state, ada){
-      CoinServices.getCurrentPrice(ada)
+    getCurrentPriceXLM(state, xlm){
+      CoinServices.getCurrentPrice(xlm)
       .then((response) => {
         state.values = response.data;
-        state.priceADA = parseFloat(state.values.totalBid).toFixed(2);
+        state.priceXLM = parseFloat(state.values.totalBid).toFixed(2);
       }) 
     },
     getMovements(state, movements){
       
       state.totalETH = 0;
       state.totalBTC = 0;
-      state.totalADA = 0;
+      state.totalXLM = 0;
       state.totalUSDT = 0;
       state.resultadoBTC = 0;
       state.resultadoETH = 0;
-      state.resultadoADA = 0;
-      state.resultadoUSDT = 0
+      state.resultadoXLM = 0;
+      state.resultadoUSDT = 0;
       state.movements = movements;
+      debugger;
       for (let coin of state.movements){
         if (coin.crypto_code === "btc"){
           if (coin.action === "purchase"){
@@ -127,34 +129,41 @@ export default createStore({
             state.resultadoUSDT += parseFloat(coin.money).toFixed(2);
           }
         }
-        if (coin.crypto_code === "ada"){
+        if (coin.crypto_code === "xlm"){
+        
           if (coin.action === "purchase"){
-            state.totalADA += coin.crypto_amount;
-            state.resultadoADA -= parseFloat(coin.money).toFixed(2);
+            state.totalXLM += coin.crypto_amount;
+            state.resultadoXLM -= parseFloat(coin.money).toFixed(2);
           } 
           else{
-            state.totalADA -= coin.crypto_amount;
-            state.resultadoADA += parseFloat(coin.money).toFixed(2);
+            state.totalXLM -= coin.crypto_amount;
+            state.resultadoXLM += parseFloat(coin.money).toFixed(2);
           }
         }
       }
+      debugger;
       state.resultadoETH += state.priceETH * state.totalETH;
       state.resultadoBTC += state.priceBTC * state.totalBTC;
-      state.resultadoADA += state.priceADA * state.totalADA;
-      state.resultadoUSDT += state.priceUSDT * state.totalUSDT;   
-       
+      state.resultadoXLM +=state.priceXLM * state.totalXLM;
+      state.resultadoUSDT +=state.priceUSDT * state.totalUSDT;   
+
       if (state.resultadoETH !== 0){
-        state.resultadoETH = (state.resultadoETH).toFixed(2);
+        state.resultadoETH = parseFloat(state.resultadoETH).toFixed(2)
       }
+      
       if (state.resultadoBTC !== 0){
-        state.resultadoBTC = (state.resultadoBTC).toFixed(2);
+
+        debugger
+        state.resultadoBTC = parseFloat(state.resultadoBTC).toFixed(2)
       }
-      if (state.resultadoADA !== 0){
-        state.resultadoADA = (state.resultadoADA).toFixed(2);
+      if (state.resultadoXLM !== 0){
+    
+        state.resultadoXLM = parseFloat(state.resultadoXLM).toFixed(2)
       }
       if (state.resultadoUSDT !== 0){
-        state.resultadoUSDT = (state.resultadoUSDT).toFixed(2);
+        state.resultadoUSDT = parseFloat(state.resultadoUSDT).toFixed(2)
       }
+      
     },
     cleanMovements(state){
       state.movements = [];
@@ -163,7 +172,7 @@ export default createStore({
   },
   actions: {
     setMovements(resource){
-      debugger;
+      
       CoinServices.getUserInformation(resource.state.user)
       .then((response) => {
         resource.commit("cleanMovements");

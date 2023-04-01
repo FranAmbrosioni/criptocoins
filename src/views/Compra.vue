@@ -1,19 +1,21 @@
 <template>
-    <div class="about">
-        <h2>Compra</h2>
+    <div>
+        <h2 class="centrardiv">Compra</h2>
         <hr>
     </div>
 
-    <h3>Selecciona la Moneda a Comprar</h3>
+    <h3 class="centrardiv">Selecciona la Moneda a Comprar</h3>
 
-    <div>
+    <div class="centrardiv">
         <div v-if="view ===1">
-            <button @click="Cripto(btc)">Bitcoin</button>
-            <button @click="Cripto(usdt)">Tether</button>
-            <button @click="Cripto(ada)">Cardano</button>
-            <button @click="Cripto(eth)">Ethereum</button>
-
-        <div v-show="seeTable">
+            
+            <button class="btnCripto" @click="Cripto(btc)"><span class="text">Bitcoin</span></button>
+            <button class="btnCripto" @click="Cripto(usdt)"><span class="text">Tether</span></button>
+            <button class="btnCripto" @click="Cripto(xlm)"><span class="text">Lumens</span></button>
+            <button class="btnCripto" @click="Cripto(eth)"><span class="text">Ethereum</span></button>
+        
+            
+        <div class="centrardiv" v-show="seeTable">
             <TablaCompra :agencies="agencies" :view="view" @change-view="changeView" @sendCoin="selectAgency">
             </TablaCompra>
         </div>
@@ -49,7 +51,7 @@ data() {
     type: 'purchase',
     btc: 'btc',
     eth: 'eth',
-    ada: 'ada',
+    xlm: 'xlm',
     usdt: 'usdt',
     seeTable: false,
     };
@@ -97,3 +99,48 @@ methods: {
 };
 
 </script>
+
+<style> 
+
+.centrardiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btnCripto {
+background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 10px;
+  max-width: none;
+  min-height: 30px;
+  min-width: 5px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 20px 10px 10px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+
+.btnCripto:hover,
+.btnCripto:focus {
+    opacity: .75;
+    background-color: rgb(3, 63, 45);
+    color: #222;
+}
+</style>

@@ -4,7 +4,7 @@
         <hr>
 
     </div>
-    <div v-if="$store.state.movements.length != 0">
+    <div class="centrardiv" v-if="$store.state.movements.length != 0" >
         <div v-if="view ===1">
             <EstadoActual></EstadoActual>
             <Historial @showOperation="seeOperation"></Historial>
@@ -12,12 +12,12 @@
         </div>
         <div v-if="view === 2">
             <h3>Información del Movimiento</h3>
-            <div>
-                <div>Criptomoneda: {{information.crypto_code.toUpperCase()}}</div>
-                <div>Tipo de Operación: {{information.action.toUpperCase()}}</div>
-                <div>Cantdad: {{information.crypto_amount}}</div>
-                <div>Dinero Invertido: $ {{information.money}}</div>
-                <div>Fecha de operación: {{date(information)}}</div>
+            <div class="info">           
+                <p>Criptomoneda: {{ information.crypto_code.toUpperCase() }}</p>
+                <p>Operación: {{ information.action.toUpperCase() }}</p>
+                <p>Cantidad: {{ information.crypto_amount }}</p>
+                <p>Dinero Invertido: $ {{ information.money }}</p>
+                <p>Fecha de operación: {{ date(information) }}</p>
             </div>
             <br>
             <button @click="view =1">Volver al menú anterior</button>
@@ -67,7 +67,7 @@ data() {
     view: 1,
     selectedPrice: 0,
     information: {
-        id: "",
+        _id: "",
         action: "",
         crypto_amount: null,
         crypto_code: "",
@@ -83,7 +83,7 @@ methods: {
     seeOperation(id, page) {
     CoinServices.getMovementsById(id)
         .then((response) => {
-        this.information.id = response.data.id;
+        this.information._id = response.data._id;
         this.information.action = response.data.action;
         this.information.crypto_amount = response.data.crypto_amount;
         this.information.crypto_code = response.data.crypto_code;
@@ -94,7 +94,7 @@ methods: {
         .then(()=>this.view = page);
     },
     deleteOperation() {
-    CoinServices.deleteOperation(this.information.id)
+    CoinServices.deleteOperation(this.information._id)
         .then(()=> this.setMovements())
         .then(()=> this.view = 1);
     },
@@ -120,3 +120,5 @@ methods: {
 };
 
 </script>
+
+<style scoped></style>

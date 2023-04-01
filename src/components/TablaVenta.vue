@@ -1,16 +1,16 @@
 <template>
-    <div>
+    <div class="tablecontainer">
         <table>
             <thead>
             <tr>
-                <th>Agencia</th>
-                <th>Precio Compra</th>
-                <th>Efectuar Compra</th>
+                <th scope="col">Agencia</th>
+                <th scope="col">Compra</th>
+                <th scope="col">Compra</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="agency in Object.keys(agencies)" :key="agency">
-                <td>{{ agency }}</td>
+                <td>{{agency}}</td>
                 <td>$ {{this.agencies[agency].totalBid}}</td>
                 <td><button @click="change(agency)">Vender</button></td>
             </tr>
@@ -39,6 +39,7 @@ data() {
 },
 methods: {
     change(agency) {
+        debugger;
     this.selectedCoin = agency;
     this.$emit('change-view');
     this.$emit('sendCoin', this.selectedCoin);
@@ -46,3 +47,45 @@ methods: {
 },
 };
 </script>
+
+<style scoped>
+
+.tablecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 100px auto;
+}
+
+table{
+    background-color: white;
+    text-align: center;
+    width: 150%;
+    border-collapse: collapse;
+
+
+}
+th,td{
+    border: solid 1px black;
+    padding: 0;
+}
+
+thead{
+    background-color: #246355;
+    border-bottom: solid 5px #0f362d ;
+    color: white;
+
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+
+}
+
+tr:hover{
+    background-color: #369681;
+    color: white;
+}
+
+</style>
