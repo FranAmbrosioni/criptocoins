@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-debugger;
+
 const apiClient = axios.create({
 	baseURL: 'https://laboratorio3-f36a.restdb.io/rest',
 	headers: {'x-apikey': '60eb09146661365596af552f'}
@@ -20,7 +20,6 @@ getCoins(coin) {
 
 },
 postOperation(user, type, cripto, amount, money, dateTime) {
-    debugger;
     return apiClient.post("/transactions", {
         user_id: user,
         action: type,
@@ -31,7 +30,7 @@ postOperation(user, type, cripto, amount, money, dateTime) {
         });
     },
 getUserInformation(user) {
-    debugger;
+    
     return apiClient.get(`/transactions?q={"user_id": "${user}"}`);
 },
 getCurrentPrice(coin) {
@@ -41,11 +40,11 @@ getMovementsById(id) {
     return apiClient.get(`/transactions/${id}`);
 },
 deleteOperation(id) {
-    debugger;
+    
     return apiClient.delete(`/transactions/${id}`)
 },
 changeMovement(movement) {
-    debugger;
+    
     return apiClient.patch("transactions/" + movement._id, movement);
 },
 };

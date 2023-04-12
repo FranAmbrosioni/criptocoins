@@ -34,8 +34,8 @@
         </div>
         <div v-else-if="view ===4">
             <h4>¿Está seguro que desea eliminar este movimiento?</h4>
-            <button @click="deleteOperation">Si</button>
-            <button @click="view= 1">No</button>
+            <button @click="deleteOperation" class="btnAction">Si</button>
+            <button @click="view= 1" class="btnAction">No</button>
         </div>
         
     </div>
@@ -121,4 +121,41 @@ methods: {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.btnAction {
+    background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 10px;
+  max-width: none;
+  min-height: 30px;
+  min-width: 5px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 20px 10px 10px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+
+.btnAction:hover,
+.btnAction:focus {
+    opacity: .95;
+    background-color: rgb(3, 63, 45);
+    color: #fffefe;
+}
+
+</style>
