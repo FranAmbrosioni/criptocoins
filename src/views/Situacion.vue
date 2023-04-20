@@ -154,7 +154,7 @@ methods: {
 .btnAction:hover,
 .btnAction:focus {
     opacity: .95;
-    background-color: rgb(3, 63, 45);
+    background-color: rgb(221, 6, 6);
     color: #fffefe;
 }
 

@@ -61,7 +61,7 @@ computed:
 methods: {
     ...mapActions(['setMovements']),
     Cripto(value) {
-    debugger;
+
     this.coin = value;
     CoinServices.getCoins(this.coin)
         .then((response) => {

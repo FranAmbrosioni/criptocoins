@@ -42,7 +42,7 @@ export default createStore({
       return state.movements
     },
     getCoins(state){
-      debugger
+      
       return {
         totalBTC: state.totalBTC,
         totalETH: state.totalETH,
