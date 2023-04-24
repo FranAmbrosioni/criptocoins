@@ -12,8 +12,7 @@
         <button @click="volver" class="btnCripto">Volver</button>
     </div>
     
-<form>
-   
+<form>  
     
     
 </form>
@@ -48,6 +47,7 @@
           this.cantidadCriptos = (this.montoPesos * 1 / (this.agencies[this.selectedCoin].totalAsk));
         },
         calcularPeso() {
+           
           this.montoPesos = (this.cantidadCriptos * this.agencies[this.selectedCoin].totalAsk);
         },
         comprar() {

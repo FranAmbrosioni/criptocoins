@@ -12,12 +12,12 @@
         <option value="purchase">Comprar</option>
         <option value="sale">Vender</option>
     </select>
-
+    <br>
     <label>Monto en Pesos</label>
-      <input type="number" v-model.number="newValues.money" step="0.01" @input="calcularCripto">
+    <input type="number" v-model.number="newValues.money" step="0.01" @input="calcularCripto">
     <br>
     <label>Cantidad de Criptomonedas</label>
-      <input type="number" v-model.number="newValues.crypto_amount" step="0.00001" @input="calcularPeso">
+    <input type="number" v-model.number="newValues.crypto_amount" step="0.00001" @input="calcularPeso">
     <br>
     <br>
     <div>
@@ -51,7 +51,7 @@ methods: {
       this.newValues.crypto_amount = (this.newValues.money * 1 / this.price).toFixed(5);
     },
     calcularPeso() {
-      this.newValues.money = (this.newValues.money * 1 / this.price).toFixed(2);
+      this.newValues.money = (this.newValues.crypto_amount * this.price).toFixed(2);
     },
     volver() {
     this.$emit('goBack');
